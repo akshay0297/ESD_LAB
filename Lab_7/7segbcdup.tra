@@ -1,0 +1,21 @@
+*** Creating Trace Output File '7segbcdup.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup_lpc17xx.o"'
+### List of Objects: adding '"system_lpc17xx.o"'
+### List of Objects: adding '"7segexample.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 "startup_lpc17xx.o" "system_lpc17xx.o" "7segexample.o" 
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x10000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\7segbcdup.map" -o 7segbcdup.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '7segbcdup.axf'
+### ADS-LD Command File: '7segbcdup.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '7segbcdup.lnp', Handle=0x00000A00
+### Writing '.lnp' file
+### ADS-LD Command file '7segbcdup.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

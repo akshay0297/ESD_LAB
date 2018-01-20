@@ -1,0 +1,189 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; ASCENDING STACK
+    2 00000000                 AREA             RESET,DATA,READONLY
+    3 00000000                 EXPORT           __Vectors
+    4 00000000         __Vectors
+    5 00000000 10001000        DCD              0X10001000
+    6 00000004                 ALIGN
+    7 00000004 00000000        DCD              Reset_Handler
+    8 00000008                 AREA             mycode,CODE,READONLY
+    9 00000000                 ENTRY
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000         Reset_Handler
+   12 00000000 481A            LDR              R0,=SRC
+   13 00000002 F04F 0105       LDR              R1,=5
+   14 00000006 F04F 0202       LDR              R2,=2
+   15 0000000A F04F 0304       LDR              R3,=4
+   16 0000000E F04F 0401       LDR              R4,=1
+   17 00000012 F04F 0507       LDR              R5,=7
+   18 00000016 F04F 0609       LDR              R6,=9
+   19 0000001A F04F 070A       LDR              R7,=10
+   20 0000001E F04F 0803       LDR              R8,=3
+   21 00000022 F04F 0906       LDR              R9,=6
+   22 00000026 F04F 0A08       LDR              R10,=8
+   23 0000002A E880 07FE       STM              R0,{R1-R10}
+   24 0000002E F04F 0C0A       LDR              R12,=N
+   25 00000032         OUT
+   26 00000032 4601            MOV              R1,R0
+   27 00000034 680A            LDR              R2,[R1]
+   28 00000036 460B            MOV              R3,R1
+   29 00000038 46E3            MOV              R11,R12
+   30 0000003A         IN
+   31 0000003A 681C            LDR              R4,[R3]
+   32 0000003C 4294            CMP              R4,R2
+   33 0000003E BF84 4622       MOVHI            R2,R4
+   34 00000042 4619            MOVHI            R1,R3
+   35 00000044 F103 0304       ADD              R3,#4
+   36 00000048 F1AB 0B01       SUB              R11,#1
+   37 0000004C F09B 0F00       TEQ              R11,#0
+   38 00000050 D1F3            BNE              IN
+   39 00000052         
+   40 00000052 6805            LDR              R5,[R0]
+   41 00000054 F840 2B04       STR              R2,[R0],#4
+   42 00000058 600D            STR              R5,[R1]
+   43 0000005A F1AC 0C01       SUB              R12,#1
+   44 0000005E F09C 0F00       TEQ              R12,#0
+   45 00000062 D1E6            BNE              OUT
+   46 00000064 E930 07FE       LDMDB            R0!,{R1-R10}
+   47 00000068         
+   48 00000068 E7FE    STOP    B                STOP
+   49 0000006A 0000000A 
+                       N       EQU              10
+   50 0000006A 00 00 00000000 
+              00000000         AREA             DATASEG,DATA,READWRITE
+   51 00000000 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+              00000000 
+              00000000 
+              00000000 SRC     DCD              0,0,0,0,0,0,0,0,0,0
+   52 00000028                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=ascendin
+g.d -oascending.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\
+ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=ascending.lst ascending.
+s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 2 in file ascending.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file ascending.s
+   Uses
+      At line 3 in file ascending.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+IN 0000003A
+
+Symbol: IN
+   Definitions
+      At line 30 in file ascending.s
+   Uses
+      At line 38 in file ascending.s
+Comment: IN used once
+OUT 00000032
+
+Symbol: OUT
+   Definitions
+      At line 25 in file ascending.s
+   Uses
+      At line 45 in file ascending.s
+Comment: OUT used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 11 in file ascending.s
+   Uses
+      At line 7 in file ascending.s
+      At line 10 in file ascending.s
+
+STOP 00000068
+
+Symbol: STOP
+   Definitions
+      At line 48 in file ascending.s
+   Uses
+      At line 48 in file ascending.s
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 8 in file ascending.s
+   Uses
+      None
+Comment: mycode unused
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATASEG 00000000
+
+Symbol: DATASEG
+   Definitions
+      At line 50 in file ascending.s
+   Uses
+      None
+Comment: DATASEG unused
+SRC 00000000
+
+Symbol: SRC
+   Definitions
+      At line 51 in file ascending.s
+   Uses
+      At line 12 in file ascending.s
+Comment: SRC used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+N 0000000A
+
+Symbol: N
+   Definitions
+      At line 49 in file ascending.s
+   Uses
+      At line 24 in file ascending.s
+Comment: N used once
+1 symbol
+343 symbols in table

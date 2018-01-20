@@ -1,0 +1,1 @@
+two.o: two.s

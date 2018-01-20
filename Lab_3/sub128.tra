@@ -1,0 +1,19 @@
+*** Creating Trace Output File 'sub128.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"sb128.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 "sb128.o" 
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x10000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\sub128.map" -o sub128.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'sub128.axf'
+### ADS-LD Command File: 'sub128.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'sub128.lnp', Handle=0x000007AC
+### Writing '.lnp' file
+### ADS-LD Command file 'sub128.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

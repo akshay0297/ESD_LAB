@@ -1,0 +1,168 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0X10001000
+    5 00000004                 ALIGN
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008                 AREA             mycode,CODE,READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         Reset_Handler
+   11 00000000 480E            LDR              R0,=SRC
+   12 00000002 F04F 0C0A       LDR              R12,=N
+   13 00000006         OUT
+   14 00000006 4601            MOV              R1,R0
+   15 00000008 680A            LDR              R2,[R1]
+   16 0000000A 460B            MOV              R3,R1
+   17 0000000C 46E3            MOV              R11,R12
+   18 0000000E         IN
+   19 0000000E 681C            LDR              R4,[R3]
+   20 00000010 4294            CMP              R4,R2
+   21 00000012 BF84 4622       MOVHI            R2,R4
+   22 00000016 4619            MOVHI            R1,R3
+   23 00000018 F103 0304       ADD              R3,#4
+   24 0000001C F1AB 0B01       SUB              R11,#1
+   25 00000020 F09B 0F00       TEQ              R11,#0
+   26 00000024 D1F3            BNE              IN
+   27 00000026         
+   28 00000026 6805            LDR              R5,[R0]
+   29 00000028 F840 2B04       STR              R2,[R0],#4
+   30 0000002C 600D            STR              R5,[R1]
+   31 0000002E F1AC 0C01       SUB              R12,#1
+   32 00000032 F09C 0F00       TEQ              R12,#0
+   33 00000036 D1E6            BNE              OUT
+   34 00000038 E7FE    STOP    B                STOP
+   35 0000003A 0000000A 
+                       N       EQU              10
+   36 0000003A 00 00 00000000 
+              00000000         AREA             DATASEG,DATA,READWRITE
+   37 00000000 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 SRC     DCD              0,0,0,0,0,0,0,0,0,0
+   38 00000028                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=Select.d
+ -oSelect.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\In
+c\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=Select.lst Select.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file Select.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file Select.s
+   Uses
+      At line 2 in file Select.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+IN 0000000E
+
+Symbol: IN
+   Definitions
+      At line 18 in file Select.s
+   Uses
+      At line 26 in file Select.s
+Comment: IN used once
+OUT 00000006
+
+Symbol: OUT
+   Definitions
+      At line 13 in file Select.s
+   Uses
+      At line 33 in file Select.s
+Comment: OUT used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file Select.s
+   Uses
+      At line 6 in file Select.s
+      At line 9 in file Select.s
+
+STOP 00000038
+
+Symbol: STOP
+   Definitions
+      At line 34 in file Select.s
+   Uses
+      At line 34 in file Select.s
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file Select.s
+   Uses
+      None
+Comment: mycode unused
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATASEG 00000000
+
+Symbol: DATASEG
+   Definitions
+      At line 36 in file Select.s
+   Uses
+      None
+Comment: DATASEG unused
+SRC 00000000
+
+Symbol: SRC
+   Definitions
+      At line 37 in file Select.s
+   Uses
+      At line 11 in file Select.s
+Comment: SRC used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+N 0000000A
+
+Symbol: N
+   Definitions
+      At line 35 in file Select.s
+   Uses
+      At line 12 in file Select.s
+Comment: N used once
+1 symbol
+343 symbols in table

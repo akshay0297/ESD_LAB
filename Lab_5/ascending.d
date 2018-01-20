@@ -1,0 +1,1 @@
+ascending.o: ascending.s

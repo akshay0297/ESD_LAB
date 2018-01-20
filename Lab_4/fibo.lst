@@ -1,0 +1,176 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET , DATA ,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10000000        DCD              0x10000000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode , CODE , READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT
+   10 00000000         Reset_Handler
+   11 00000000 F8DF 803C       LDR              R8 , = SRC
+   12 00000004 490F            LDR              R1 , = DST
+   13 00000006 F8D8 0000       LDR              R0 , [R8]
+   14 0000000A F04F 0201       MOV              R2 , #01
+   15 0000000E F04F 0301       MOV              R3 , #01
+   16 00000012         
+   17 00000012 F841 2B04       STR              R2 , [R1] , #4
+   18 00000016 F841 3B04       STR              R3 , [R1] , #4
+   19 0000001A         
+   20 0000001A F000 F801       BL               RECUR
+   21 0000001E E7FE    STOP    B                STOP
+   22 00000020         
+   23 00000020         RECUR
+   24 00000020 F851 2C04       LDR              R2 , [R1 , #-4]
+   25 00000024 F851 3C08       LDR              R3 , [R1 , #-8]
+   26 00000028 441A            ADD              R2 , R3
+   27 0000002A 4282            CMP              R2 , R0
+   28 0000002C D806            BHI              exit
+   29 0000002E F841 2B04       STR              R2 , [R1] , #4
+   30 00000032 B500            PUSH             {R14}
+   31 00000034 F7FF FFF4       BL               RECUR
+   32 00000038 F85D EB04       POP              {R14}
+   33 0000003C         
+   34 0000003C 4770    exit    BX               LR
+   35 0000003E 00 00 00000000 
+              00000000         AREA             DATASEG , DATA , READWRITE
+   36 00000000 00000012 
+              00000023 
+              00000034 
+              00000045 
+              00000056 
+              00000067 
+              00000078 
+              00000089 
+              00000091 
+              000000AB SRC     DCD              0x12 , 0x23 , 0x34 , 0x45 , 0x5
+6 , 0x67 , 0x78 , 0x89 , 0x91 , 0xAB
+   37 00000028 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 DST     DCD              0,0,0,0,0,0,0,0,0,0
+   38 00000050                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=fibo.d -
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+ofibo.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NX
+P\LPC17xx --predefine="__EVAL SETA 1" --list=fibo.lst fibo.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file fibo.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file fibo.s
+   Uses
+      At line 2 in file fibo.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RECUR 00000020
+
+Symbol: RECUR
+   Definitions
+      At line 23 in file fibo.s
+   Uses
+      At line 20 in file fibo.s
+      At line 31 in file fibo.s
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file fibo.s
+   Uses
+      At line 5 in file fibo.s
+Comment: Reset_Handler used once
+STOP 0000001E
+
+Symbol: STOP
+   Definitions
+      At line 21 in file fibo.s
+   Uses
+      At line 21 in file fibo.s
+Comment: STOP used once
+exit 0000003C
+
+Symbol: exit
+   Definitions
+      At line 34 in file fibo.s
+   Uses
+      At line 28 in file fibo.s
+Comment: exit used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file fibo.s
+   Uses
+      None
+Comment: mycode unused
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATASEG 00000000
+
+Symbol: DATASEG
+   Definitions
+      At line 35 in file fibo.s
+   Uses
+      None
+Comment: DATASEG unused
+DST 00000028
+
+Symbol: DST
+   Definitions
+      At line 37 in file fibo.s
+   Uses
+      At line 12 in file fibo.s
+Comment: DST used once
+SRC 00000000
+
+Symbol: SRC
+   Definitions
+      At line 36 in file fibo.s
+   Uses
+      At line 11 in file fibo.s
+Comment: SRC used once
+3 symbols
+343 symbols in table

@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab_4', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Lab_4\lcm.s)(0x589BE5C9)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx --list ".\lcm.lst" --xref -o "lcm.o" --depend "lcm.d")

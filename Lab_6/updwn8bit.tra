@@ -1,0 +1,21 @@
+*** Creating Trace Output File 'updwn8bit.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"system_lpc17xx.o"'
+### List of Objects: adding '".\startup_lpc17xx.o"'
+### List of Objects: adding '"updwn8bit.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 "system_lpc17xx.o" ".\startup_lpc17xx.o" "updwn8bit.o" 
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x10000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\updwn8bit.map" -o updwn8bit.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'updwn8bit.axf'
+### ADS-LD Command File: 'updwn8bit.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'updwn8bit.lnp', Handle=0x000021D8
+### Writing '.lnp' file
+### ADS-LD Command file 'updwn8bit.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

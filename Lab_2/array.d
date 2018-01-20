@@ -1,0 +1,1 @@
+array.o: array.s

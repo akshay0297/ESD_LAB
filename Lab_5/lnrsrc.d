@@ -1,0 +1,1 @@
+lnrsrc.o: lnrsrc.s

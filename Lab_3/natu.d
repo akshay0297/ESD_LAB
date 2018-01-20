@@ -1,0 +1,1 @@
+natu.o: natu.s

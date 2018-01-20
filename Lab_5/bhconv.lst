@@ -1,0 +1,157 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET , DATA ,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10000000        DCD              0x10000000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode , CODE , READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT
+   10 00000000         Reset_Handler
+   11 00000000 4808            LDR              R0 , = SRC
+   12 00000002 4909            LDR              R1 , = DST
+   13 00000004 6802            LDR              R2 , [R0]
+   14 00000006 F04F 0300       MOV              R3,#0
+   15 0000000A 2A10            CMP              R2 , #16
+   16 0000000C D906            BLS              LOW
+   17 0000000E         START
+   18 0000000E F1A2 0210       SUB              R2 , #16
+   19 00000012 F103 0301       ADD              R3 , #01
+   20 00000016 2A10            CMP              R2 , #16
+   21 00000018 D300            BLO              LOW
+   22 0000001A E7F8            B                START
+   23 0000001C         
+   24 0000001C         LOW
+   25 0000001C EA4F 1303       LSL              R3 , #04
+   26 00000020 4413            ADD              R3 , R2
+   27 00000022 600B            STR              R3 ,[R1]
+   28 00000024         
+   29 00000024         
+   30 00000024 00000000 
+              00000000         AREA             DATASEG , DATA , READWRITE
+   31 00000000 00000012 
+              00000023 
+              00000034 
+              00000045 
+              00000056 
+              00000067 
+              00000078 
+              00000089 
+              00000091 
+              000000AB SRC     DCD              0x12 , 0x23 , 0x34 , 0x45 , 0x5
+6 , 0x67 , 0x78 , 0x89 , 0x91 , 0xAB
+   32 00000028 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 DST     DCD              0,0,0,0,0,0,0,0,0,0
+   33 00000050                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=bhconv.d
+ -obhconv.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\In
+c\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=bhconv.lst bhconv.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file bhconv.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file bhconv.s
+   Uses
+      At line 2 in file bhconv.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LOW 0000001C
+
+Symbol: LOW
+   Definitions
+      At line 24 in file bhconv.s
+   Uses
+      At line 16 in file bhconv.s
+      At line 21 in file bhconv.s
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file bhconv.s
+   Uses
+      At line 5 in file bhconv.s
+Comment: Reset_Handler used once
+START 0000000E
+
+Symbol: START
+   Definitions
+      At line 17 in file bhconv.s
+   Uses
+      At line 22 in file bhconv.s
+Comment: START used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file bhconv.s
+   Uses
+      None
+Comment: mycode unused
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATASEG 00000000
+
+Symbol: DATASEG
+   Definitions
+      At line 30 in file bhconv.s
+   Uses
+      None
+Comment: DATASEG unused
+DST 00000028
+
+Symbol: DST
+   Definitions
+      At line 32 in file bhconv.s
+   Uses
+      At line 12 in file bhconv.s
+Comment: DST used once
+SRC 00000000
+
+Symbol: SRC
+   Definitions
+      At line 31 in file bhconv.s
+   Uses
+      At line 11 in file bhconv.s
+Comment: SRC used once
+3 symbols
+342 symbols in table

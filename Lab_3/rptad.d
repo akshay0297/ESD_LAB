@@ -1,0 +1,1 @@
+rptad.o: rptad.s

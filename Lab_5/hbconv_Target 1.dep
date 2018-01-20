@@ -1,0 +1,2 @@
+Dependencies for Project 'hbconv', Target 'Target 1': (DO NOT MODIFY !)
+F (.\hex2bcd.ASM)(0x58A525C8)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx --list "hex2bcd.lst" --xref -o "hex2bcd.o" --depend "hex2bcd.d")

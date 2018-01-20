@@ -1,0 +1,166 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET , DATA ,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10000000        DCD              0x10000000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode , CODE , READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT
+   10 00000000         Reset_Handler
+   11 00000000 4807            LDR              R0 , = SRC
+   12 00000002 4908            LDR              R1 , =DST
+   13 00000004 F850 2B04       LDR              R2 , [R0] , #4
+   14 00000008 F850 3B04       LDR              R3 , [R0] , #4
+   15 0000000C 4614            MOV              R4 , R2
+   16 0000000E 461D            MOV              R5 , R3
+   17 00000010         
+   18 00000010         START
+   19 00000010 429A            CMP              R2 , R3
+   20 00000012 D802            BHI              high
+   21 00000014 D003            BEQ              equl
+   22 00000016 4422            ADD              R2 , R4
+   23 00000018 E7FA            B                START
+   24 0000001A         high
+   25 0000001A 442B            ADD              R3 , R5
+   26 0000001C E7F8            B                START
+   27 0000001E         equl
+   28 0000001E 600A            STR              R2 , [R1]
+   29 00000020         
+   30 00000020         
+   31 00000020 00000000 
+              00000000         AREA             DATASEG , DATA , READWRITE
+   32 00000000 00000012 
+              00000023 
+              00000034 
+              00000045 
+              00000056 
+              00000067 
+              00000078 
+              00000089 
+              00000091 
+              000000AB SRC     DCD              0x12 , 0x23 , 0x34 , 0x45 , 0x5
+6 , 0x67 , 0x78 , 0x89 , 0x91 , 0xAB
+   33 00000028 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 DST     DCD              0,0,0,0,0,0,0,0,0,0
+   34 00000050                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=lcm.d -o
+lcm.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\
+LPC17xx --predefine="__EVAL SETA 1" --list=.\lcm.lst Lab_4\lcm.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file Lab_4\lcm.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file Lab_4\lcm.s
+   Uses
+      At line 2 in file Lab_4\lcm.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file Lab_4\lcm.s
+   Uses
+      At line 5 in file Lab_4\lcm.s
+Comment: Reset_Handler used once
+START 00000010
+
+Symbol: START
+   Definitions
+      At line 18 in file Lab_4\lcm.s
+   Uses
+      At line 23 in file Lab_4\lcm.s
+      At line 26 in file Lab_4\lcm.s
+
+equl 0000001E
+
+Symbol: equl
+   Definitions
+      At line 27 in file Lab_4\lcm.s
+   Uses
+      At line 21 in file Lab_4\lcm.s
+Comment: equl used once
+high 0000001A
+
+Symbol: high
+   Definitions
+      At line 24 in file Lab_4\lcm.s
+   Uses
+      At line 20 in file Lab_4\lcm.s
+Comment: high used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file Lab_4\lcm.s
+   Uses
+      None
+Comment: mycode unused
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATASEG 00000000
+
+Symbol: DATASEG
+   Definitions
+      At line 31 in file Lab_4\lcm.s
+   Uses
+      None
+Comment: DATASEG unused
+DST 00000028
+
+Symbol: DST
+   Definitions
+      At line 33 in file Lab_4\lcm.s
+   Uses
+      At line 12 in file Lab_4\lcm.s
+Comment: DST used once
+SRC 00000000
+
+Symbol: SRC
+   Definitions
+      At line 32 in file Lab_4\lcm.s
+   Uses
+      At line 11 in file Lab_4\lcm.s
+Comment: SRC used once
+3 symbols
+343 symbols in table

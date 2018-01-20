@@ -1,0 +1,128 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;2 DIGIT UNPACKED ASCII TO PACKED HEXA
+    2 00000000         
+    3 00000000                 AREA             RESET,DATA,READONLY
+    4 00000000                 EXPORT           __Vectors
+    5 00000000         __Vectors
+    6 00000000 10001000        DCD              0X10001000
+    7 00000004                 ALIGN
+    8 00000004 00000000        DCD              Reset_Handler
+    9 00000008                 AREA             mycode,CODE,READONLY
+   10 00000000                 ENTRY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000         Reset_Handler
+   13 00000000 4810            LDR              R0 , =SRC
+   14 00000002 4911            LDR              R1 , =DST
+   15 00000004 6802            LDR              R2 , [R0]
+   16 00000006         
+   17 00000006 F002 03FF       AND              R3 , R2 , #0xFF
+   18 0000000A F402 047F       AND              R4 , R2 , #0xFF0000
+   19 0000000E EA4F 4414       LSR              R4 , #0x10
+   20 00000012 2B41            CMP              R3 , #0x41
+   21 00000014 BFA8 3B37       SUBGE            R3 , #0x37
+   22 00000018 BF38 3B30       SUBLO            R3 , #0x30
+   23 0000001C EA49 0903       ORR              R9 , R3
+   24 00000020 EA4F 1939       ROR              R9 , #04
+   25 00000024 2C41            CMP              R4 , #0x41
+   26 00000026 BFA8 3C37       SUBGE            R4 , #0x37
+   27 0000002A BF38 3C30       SUBLO            R4 , #0x30
+   28 0000002E EA49 0904       ORR              R9 , R4
+   29 00000032 EA4F 1939       ROR              R9 , #04
+   30 00000036 EA4F 6939       ROR              R9 , #0x18
+   31 0000003A F8C1 9000       STR              R9 , [R1]
+   32 0000003E         
+   33 0000003E 00 00 00390041 
+                       SRC     DCD              0x00390041
+   34 00000044 00000000 
+              00000000         AREA             DATASEG , DATA , READWRITE
+   35 00000000 00000000 
+              00000000 DST     DCD              0,0
+   36 00000008                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=ascii2he
+x.d -oascii2hex.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\
+ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=ascii2hex.lst ascii2hex.
+s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 3 in file ascii2hex.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 5 in file ascii2hex.s
+   Uses
+      At line 4 in file ascii2hex.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file ascii2hex.s
+   Uses
+      At line 8 in file ascii2hex.s
+      At line 11 in file ascii2hex.s
+
+SRC 00000040
+
+Symbol: SRC
+   Definitions
+      At line 33 in file ascii2hex.s
+   Uses
+      At line 13 in file ascii2hex.s
+Comment: SRC used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 9 in file ascii2hex.s
+   Uses
+      None
+Comment: mycode unused
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATASEG 00000000
+
+Symbol: DATASEG
+   Definitions
+      At line 34 in file ascii2hex.s
+   Uses
+      None
+Comment: DATASEG unused
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 35 in file ascii2hex.s
+   Uses
+      At line 14 in file ascii2hex.s
+Comment: DST used once
+2 symbols
+340 symbols in table

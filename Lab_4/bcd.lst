@@ -1,0 +1,174 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET , DATA ,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10000000        DCD              0x10000000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode , CODE , READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT
+   10 00000000         Reset_Handler
+   11 00000000 4815            LDR              R0 , = SRC
+   12 00000002 4916            LDR              R1 , =DST
+   13 00000004 F850 2B04       LDR              R2 , [R0] , #4
+   14 00000008 6803            LDR              R3 , [R0]
+   15 0000000A F04F 0800       MOV              R8 , #0
+   16 0000000E F04F 0A08       MOV              R10 , #8
+   17 00000012         UP
+   18 00000012 4614            MOV              R4 , R2
+   19 00000014 FA24 F408       LSR              R4 , R8
+   20 00000018 F004 040F       AND              R4 , #0x0F
+   21 0000001C 461D            MOV              R5 , R3
+   22 0000001E FA25 F508       LSR              R5 , R8
+   23 00000022 F005 050F       AND              R5 , #0x0F
+   24 00000026         
+   25 00000026 4435            ADD              R5 , R6
+   26 00000028 EB04 0605       ADD              R6 , R4 , R5
+   27 0000002C 2E09            CMP              R6 , #09
+   28 0000002E D901            BLS              skip
+   29 00000030 F106 0606       ADD              R6 , #06
+   30 00000034         
+   31 00000034         skip
+   32 00000034 F006 070F       AND              R7 , R6 , #0x0F
+   33 00000038 EA4F 1616       LSR              R6 , #4
+   34 0000003C EA49 0907       ORR              R9 , R7
+   35 00000040 EA4F 1939       ROR              R9 , #4
+   36 00000044 F108 0804       ADD              R8 , #4
+   37 00000048 F1AA 0A01       SUB              R10 ,#1
+   38 0000004C F09A 0F00       TEQ              R10 , #0
+   39 00000050 D1DF            BNE              UP
+   40 00000052 F841 9B04       STR              R9 , [R1] , #4
+   41 00000056 600E            STR              R6 , [R1]
+   42 00000058 00000000 
+              00000000         AREA             DATASEG , DATA , READWRITE
+   43 00000000 00000012 
+              00000023 
+              00000034 
+              00000045 
+              00000056 
+              00000067 
+              00000078 
+              00000089 
+              00000091 
+              000000AB SRC     DCD              0x12 , 0x23 , 0x34 , 0x45 , 0x5
+6 , 0x67 , 0x78 , 0x89 , 0x91 , 0xAB
+   44 00000028 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 DST     DCD              0,0,0,0,0,0,0,0,0,0
+   45 00000050                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=bcd.d -o
+bcd.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\
+LPC17xx --predefine="__EVAL SETA 1" --list=bcd.lst bcd.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file bcd.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file bcd.s
+   Uses
+      At line 2 in file bcd.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file bcd.s
+   Uses
+      At line 5 in file bcd.s
+Comment: Reset_Handler used once
+UP 00000012
+
+Symbol: UP
+   Definitions
+      At line 17 in file bcd.s
+   Uses
+      At line 39 in file bcd.s
+Comment: UP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file bcd.s
+   Uses
+      None
+Comment: mycode unused
+skip 00000034
+
+Symbol: skip
+   Definitions
+      At line 31 in file bcd.s
+   Uses
+      At line 28 in file bcd.s
+Comment: skip used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATASEG 00000000
+
+Symbol: DATASEG
+   Definitions
+      At line 42 in file bcd.s
+   Uses
+      None
+Comment: DATASEG unused
+DST 00000028
+
+Symbol: DST
+   Definitions
+      At line 44 in file bcd.s
+   Uses
+      At line 12 in file bcd.s
+Comment: DST used once
+SRC 00000000
+
+Symbol: SRC
+   Definitions
+      At line 43 in file bcd.s
+   Uses
+      At line 11 in file bcd.s
+Comment: SRC used once
+3 symbols
+342 symbols in table

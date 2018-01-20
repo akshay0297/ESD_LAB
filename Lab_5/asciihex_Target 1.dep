@@ -1,0 +1,2 @@
+Dependencies for Project 'asciihex', Target 'Target 1': (DO NOT MODIFY !)
+F (.\ascii2hex.s)(0x58AD99DF)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx --list "ascii2hex.lst" --xref -o "ascii2hex.o" --depend "ascii2hex.d")

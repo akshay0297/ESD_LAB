@@ -1,0 +1,2 @@
+Dependencies for Project 'sub32', Target 'Target 1': (DO NOT MODIFY !)
+F (.\sb32.S)(0x5892BCA2)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx --list "sb32.lst" --xref -o "sb32.o" --depend "sb32.d")
